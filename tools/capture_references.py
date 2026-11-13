@@ -25,6 +25,8 @@ with sync_playwright() as p:
             cards.nth(9).locator('.highcharts-container').wait_for(timeout=60000)
             page.set_viewport_size({'width':1600,'height':4500})
             page.wait_for_timeout(5000)
+            page.wait_for_function('''() => [...document.querySelectorAll('li[class*="chartListItem__"]')]
+                .slice(0,10).every(e=>[...e.querySelectorAll('img')].every(i=>i.complete && i.naturalWidth>0))''',timeout=60000)
             first, last = cards.first.bounding_box(), cards.nth(9).bounding_box()
             region = {'x': first['x'], 'y': first['y'],
                       'width': last['x'] + last['width'] - first['x'],
@@ -50,10 +52,16 @@ with sync_playwright() as p:
     page.goto('https://github.com/huggingface/diffusers/pulse', wait_until='domcontentloaded')
     page.wait_for_timeout(10000)
     chart = page.locator('div[class*="ChartCardContainerBordered__"]').first
+    chart.scroll_into_view_if_needed()
+    page.wait_for_function('''() => {
+        const imgs=[...document.querySelectorAll('.highcharts-xaxis-labels img')];
+        return imgs.length>0 && imgs.every(i=>i.complete && i.naturalWidth>0);
+    }''',timeout=60000)
     chart.screenshot(path=str(ROOT / 'fig4-top-committers' / 'reference.png'))
     metadata = {'url':page.url, 'captured_at':datetime.now(timezone.utc).isoformat(),
                 'period':'2026-11-05 to 2026-11-12', 'scope':'Pulse chart author counts as displayed',
                 'text':chart.inner_text(), 'region':chart.bounding_box(),
+                'category_labels':page.locator('.highcharts-xaxis-labels img').evaluate_all('''es=>es.map(i=>({author:i.alt,loaded:i.complete && i.naturalWidth>0}))'''),
                 'charts':page.locator('.highcharts-container').evaluate_all('''els => els.map(e=>({
                     width:e.clientWidth,height:e.clientHeight,
                     points:Array.from(e.querySelectorAll('.highcharts-point')).map(p=>p.getAttribute('aria-label')),

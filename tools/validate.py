@@ -51,6 +51,10 @@ for folder in sorted(ROOT.glob('fig[1-4]-*')):
             m=re.fullmatch(r'(.+), ([\d,]+)\. Commits\.',p)
             captured.append((m[1],int(m[2].replace(',',''))))
         assert captured==list(zip(df.author,df.commits))
+        labels=metadata.get('category_labels')
+        assert labels, 'Missing category-label load verification'
+        assert [label['author'] for label in labels]==df.author.tolist()
+        assert all(label['loaded'] for label in labels), 'Some avatar labels did not load'
         count=len(captured)
     results[folder.name]={'raw_rows':len(df),'reference_values_checked':count,'max_absolute_error':0}
     print(folder.name,':',count,'reference values match exactly')

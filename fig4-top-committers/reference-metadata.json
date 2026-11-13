@@ -1,21 +1,83 @@
 {
   "url": "https://github.com/huggingface/diffusers/pulse",
-  "captured_at": "2026-11-13T03:50:28.388744+00:00",
+  "captured_at": "2026-11-13T04:17:05.233870+00:00",
   "period": "2026-11-05 to 2026-11-12",
   "scope": "Pulse chart author counts as displayed",
-  "text": "Top committers\nBar chart with 15 bars.\nView as data table, Chart\nThe chart has 1 X axis displaying categories.\nThe chart has 1 Y axis displaying Commits. Data ranges from 1 to 26.\nCommits\n0\n20\n40\nEnd of interactive chart.",
+  "text": "Top committers\nBar chart with 15 bars.\nView as data table, Chart\nThe chart has 1 X axis displaying categories.\nThe chart has 1 Y axis displaying Commits. Data ranges from 1 to 24.\nCommits\n0\n20\n40\nEnd of interactive chart.",
   "region": {
     "x": 968,
     "y": 483.5,
     "width": 440,
     "height": 206
   },
+  "category_labels": [
+    {
+      "author": "sayakpaul",
+      "loaded": true
+    },
+    {
+      "author": "DN6",
+      "loaded": true
+    },
+    {
+      "author": "yiyixuxu",
+      "loaded": true
+    },
+    {
+      "author": "claude",
+      "loaded": true
+    },
+    {
+      "author": "stevhliu",
+      "loaded": true
+    },
+    {
+      "author": "JingyaHuang",
+      "loaded": true
+    },
+    {
+      "author": "hf-security-analysis[bot]",
+      "loaded": true
+    },
+    {
+      "author": "github-actions[bot]",
+      "loaded": true
+    },
+    {
+      "author": "drbh",
+      "loaded": true
+    },
+    {
+      "author": "dependabot[bot]",
+      "loaded": true
+    },
+    {
+      "author": "ConstBob",
+      "loaded": true
+    },
+    {
+      "author": "wu-qing-157",
+      "loaded": true
+    },
+    {
+      "author": "Hisernberg",
+      "loaded": true
+    },
+    {
+      "author": "mishig25",
+      "loaded": true
+    },
+    {
+      "author": "akhil9tiet",
+      "loaded": true
+    }
+  ],
   "charts": [
     {
       "width": 406,
       "height": 128,
       "points": [
-        "sayakpaul, 26. Commits.",
+        "sayakpaul, 24. Commits.",
         "DN6, 19. Commits.",
         "yiyixuxu, 18. Commits.",
         "claude, 16. Commits.",

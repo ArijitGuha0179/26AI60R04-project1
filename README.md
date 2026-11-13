@@ -66,6 +66,13 @@ labels. These acquisition tools require network access, while plotting and
 validation run entirely offline. The CSV date filters describe this fixed
 snapshot; they must be updated deliberately if collecting a later period.
 
+`tools/capture_top_committers.py` refreshes only the Pulse chart, its CSV,
+rendered source, and metadata. It waits until every avatar label has loaded
+and verifies that their author names match the chart's data points before
+saving the reference. Validation checks those category labels as well as
+the plotted values. Live counts can change between captures; regenerate
+the plot and update any counts quoted in the report after refreshing.
+
 Font rendering and interactive controls may differ; chart type, series,
 numeric values, axis placement, date labels, and visible ranges follow the
 captured references. The author-count chart retains avatar category labels,
