@@ -52,7 +52,7 @@ with sync_playwright() as p:
     chart = page.locator('div[class*="ChartCardContainerBordered__"]').first
     chart.screenshot(path=str(ROOT / 'fig4-top-committers' / 'reference.png'))
     metadata = {'url':page.url, 'captured_at':datetime.now(timezone.utc).isoformat(),
-                'period':'2026-11-05 to 2026-11-12', 'scope':'all branches, excluding merges',
+                'period':'2026-11-05 to 2026-11-12', 'scope':'Pulse chart author counts as displayed',
                 'text':chart.inner_text(), 'region':chart.bounding_box(),
                 'charts':page.locator('.highcharts-container').evaluate_all('''els => els.map(e=>({
                     width:e.clientWidth,height:e.clientHeight,

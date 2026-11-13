@@ -2,7 +2,7 @@
   "url": "https://github.com/huggingface/diffusers/pulse",
   "captured_at": "2026-11-13T03:50:28.388744+00:00",
   "period": "2026-11-05 to 2026-11-12",
-  "scope": "all branches, excluding merges",
+  "scope": "Pulse chart author counts as displayed",
   "text": "Top committers\nBar chart with 15 bars.\nView as data table, Chart\nThe chart has 1 X axis displaying categories.\nThe chart has 1 Y axis displaying Commits. Data ranges from 1 to 26.\nCommits\n0\n20\n40\nEnd of interactive chart.",
   "region": {
     "x": 968,
