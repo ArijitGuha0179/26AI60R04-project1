@@ -1,0 +1,45 @@
+{
+  "url": "https://github.com/huggingface/diffusers/pulse",
+  "captured_at": "2026-11-13T03:50:28.388744+00:00",
+  "period": "2026-11-05 to 2026-11-12",
+  "scope": "all branches, excluding merges",
+  "text": "Top committers\nBar chart with 15 bars.\nView as data table, Chart\nThe chart has 1 X axis displaying categories.\nThe chart has 1 Y axis displaying Commits. Data ranges from 1 to 26.\nCommits\n0\n20\n40\nEnd of interactive chart.",
+  "region": {
+    "x": 968,
+    "y": 483.5,
+    "width": 440,
+    "height": 206
+  },
+  "charts": [
+    {
+      "width": 406,
+      "height": 128,
+      "points": [
+        "sayakpaul, 26. Commits.",
+        "DN6, 19. Commits.",
+        "yiyixuxu, 18. Commits.",
+        "claude, 16. Commits.",
+        "stevhliu, 5. Commits.",
+        "JingyaHuang, 3. Commits.",
+        "hf-security-analysis[bot], 1. Commits.",
+        "github-actions[bot], 1. Commits.",
+        "drbh, 1. Commits.",
+        "dependabot[bot], 1. Commits.",
+        "ConstBob, 1. Commits.",
+        "wu-qing-157, 1. Commits.",
+        "Hisernberg, 1. Commits.",
+        "mishig25, 1. Commits.",
+        "akhil9tiet, 1. Commits."
+      ],
+      "texts": [
+        "Commits",
+        "",
+        "",
+        "",
+        "0",
+        "20",
+        "40"
+      ]
+    }
+  ]
+}

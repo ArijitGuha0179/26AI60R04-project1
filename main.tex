@@ -1,0 +1,123 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=18mm]{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{caption}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\title{Reproducing GitHub Insights for Diffusers}
+\author{26AI60R04\\CD61203: Essential Tools for Scientific Computing}
+\date{13 November 2026}
+\newcommand{\comparison}[1]{%
+  \begin{minipage}[t]{0.49\linewidth}\centering
+    \textbf{Matplotlib reproduction}\par\smallskip
+    \includegraphics[width=\linewidth]{#1/generated.png}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.49\linewidth}\centering
+    \textbf{GitHub reference}\par\smallskip
+    \includegraphics[width=\linewidth]{#1/reference.png}
+  \end{minipage}}
+\begin{document}
+\maketitle
+\noindent The four figures reproduce charts from the public repository
+\href{https://github.com/huggingface/diffusers}{huggingface/diffusers}.
+References were captured from GitHub on 13 November 2026, in the light theme.
+The data, plotted values, source URLs, capture times, and browser settings are
+retained in the repository. Each reproduction is drawn with Python/Matplotlib
+from CSV, independently of the reference screenshot.
+
+\begin{figure}[htbp]
+\centering
+\comparison{fig1-contributors}
+\caption{Contributors: the first ten ranked contributor cards for the default
+``Last 3 months'' selection, with 14 weekly bars per author, from 9 August to
+8 November 2026. Blue bars show commits to \texttt{main}, excluding merge
+commits. The right-hand axes use the common scale of the reference. Names,
+rank, commit totals, additions, and deletions follow GitHub's displayed order,
+including ties. The source contains additional contributors; the matching
+reference region and reproduction both show the first ten.}
+\label{fig:contributors}
+\end{figure}
+\noindent\small Source:
+\url{https://github.com/huggingface/diffusers/graphs/contributors}.
+
+\clearpage
+\section*{Weekly commits}
+\begin{figure}[htbp]
+\centering
+\comparison{fig2-commits}
+\caption{Commits over the last year: 52 weekly totals from 16 November 2025
+through 8 November 2026. The green column chart preserves the month labels,
+the ``Commits'' axis label, and the 0--60 vertical scale. The largest weekly
+total is 55, in the week beginning 4 January 2026.}
+\label{fig:commits}
+\end{figure}
+\noindent Source:
+\url{https://github.com/huggingface/diffusers/graphs/commit-activity}.
+
+\medskip\noindent\textbf{Data and method.}
+The GitHub chart endpoint supplies a total and seven daily counts for every
+week. The CSV stores all eight counts and the UTC week-start date. The figure
+uses the supplied weekly total without smoothing or interpolation. As an
+independent consistency check, every total equals the sum of its daily counts.
+
+\medskip\noindent\textbf{Comparison.}
+All 52 values agree exactly with the accessible point labels captured from
+GitHub's rendered chart. Font rendering, rounded corners, and interactive
+controls are not required to be pixel-identical.
+
+\clearpage
+\section*{Code frequency}
+\begin{figure}[htbp]
+\centering
+\comparison{fig3-code-frequency}
+\caption{Code frequency across repository history. Green columns are additions;
+red columns are signed deletions below zero. The raw endpoint provides 233
+weekly observations, from 29 May 2022 to 8 November 2026. At the captured
+full-history view GitHub groups those observations into 55 calendar-month
+sums; the reproduction uses those same sums to match the visible reference.
+The title and subtitle retain GitHub's wording, including ``per week''.}
+\label{fig:code-frequency}
+\end{figure}
+\noindent Source:
+\url{https://github.com/huggingface/diffusers/graphs/code-frequency}.
+
+\medskip\noindent\textbf{Aggregation.}
+Each weekly observation is assigned to the calendar month containing its UTC
+week-start date. Additions and signed deletions are summed separately. The
+weekly source remains in \texttt{raw\_data.csv}; the monthly values are also
+exported as \texttt{displayed\_data.csv}. Plotting code recomputes the sums from
+the weekly source. All 110 displayed series values agree exactly with the
+captured GitHub point labels. The largest monthly additions count is 76,969;
+the most negative monthly deletions count is $-46,931$.
+
+\clearpage
+\section*{Top committers}
+\begin{figure}[htbp]
+\centering
+\comparison{fig4-top-committers}
+\caption{The actual ``Top committers'' chart in GitHub Insights/Pulse for the
+displayed period 5--12 November 2026. All 15 authors appear in the original
+order. The green columns, 0--40 ``Commits'' scale, and avatar category labels
+match the reference. The leading counts are 26 for sayakpaul, 19 for DN6,
+18 for yiyixuxu, and 16 for claude.}
+\label{fig:top-committers}
+\end{figure}
+\noindent Source: \url{https://github.com/huggingface/diffusers/pulse}.
+
+\medskip\noindent\textbf{Scope.}
+This chart is located inside Pulse rather than in a separate Top committers
+menu entry. Its period differs from the Contributors page. Values are taken
+directly from the rendered chart's accessible point labels; author names are
+retained in the CSV even though GitHub displays avatars on the category axis.
+Pulse's prose summary reports separate counts excluding merges; those summary
+counts are not substituted for the plotted author counts.
+
+\medskip\noindent\textbf{Reproducibility and validation.}
+Run \texttt{python reproduce.py} to regenerate all figures offline, and
+\texttt{python tools/validate.py} to compare all 317 plotted values against
+the saved GitHub reference labels. Run \texttt{pdflatex main.tex} twice, or
+\texttt{tectonic main.tex}, to build this document. The comparisons in
+Figures~\ref{fig:contributors}--\ref{fig:top-committers} use authentic browser
+screenshots of the corresponding chart regions. No synthetic reference images
+or invented data are used.
+\end{document}

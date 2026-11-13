@@ -1,0 +1,22 @@
+{
+  "fig1-contributors": {
+    "raw_rows": 140,
+    "reference_values_checked": 140,
+    "max_absolute_error": 0
+  },
+  "fig2-commits": {
+    "raw_rows": 52,
+    "reference_values_checked": 52,
+    "max_absolute_error": 0
+  },
+  "fig3-code-frequency": {
+    "raw_rows": 233,
+    "reference_values_checked": 110,
+    "max_absolute_error": 0
+  },
+  "fig4-top-committers": {
+    "raw_rows": 15,
+    "reference_values_checked": 15,
+    "max_absolute_error": 0
+  }
+}
