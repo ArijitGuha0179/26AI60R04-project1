@@ -1,0 +1,9 @@
+.git-history/
+.tools/
+__pycache__/
+*.aux
+*.log
+*.out
+tools/tectonic
+tools/tectonic.tar.gz
+data/tectonic-release.json
